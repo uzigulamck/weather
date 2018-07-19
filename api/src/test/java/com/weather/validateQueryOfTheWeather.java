@@ -1,53 +1,52 @@
 package com.weather;
 
+import com.weather.queryWeather.ForecastResponse;
 import com.weather.queryWeather.QueryController;
 import com.weather.queryWeather.TemperatureRequest;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class validateQueryOfTheWeather {
-    @Test
-    public void canaryTest(){
 
-        QueryController sut = new QueryController();
-        Assert.assertNotNull(sut);
+    private QueryController sut;
 
+    @Before
+    public void before(){
+        sut = new QueryController();
     }
 
     @Test
     public void shouldReturnCurrentTemperatureInPanamaCity(){
-        QueryController sut = new QueryController();
 
-        long currentTemperature = sut.getCurrentTemperature(new TemperatureRequest("Panama","weatherChannel.Api"));
+        ForecastResponse response = sut.getCurrentTemperature("Panama","weatherChannel.Api");
 
-        Assert.assertEquals(30,currentTemperature);
+        Assert.assertEquals(30,response.getCurrentTemperature());
     }
 
     @Test
     public void shouldReturnCurrentTemperatureInLimaCity(){
-        QueryController sut = new QueryController();
 
-        long currentTemperature = sut.getCurrentTemperature(new TemperatureRequest("Lima","weatherChannel.Api"));
+        ForecastResponse response  = sut.getCurrentTemperature("Lima","weatherChannel.Api");
 
-        Assert.assertEquals(17,currentTemperature);
+        Assert.assertEquals(17,response.getCurrentTemperature());
     }
 
     @Test
     public void shouldReturnCurrentTemperatureInLimaCityUsingWeatherChannelApi(){
-        QueryController sut = new QueryController();
 
-        long currentTemperature = sut.getCurrentTemperature(new TemperatureRequest("Lima", "weatherChannel.Api"));
+        ForecastResponse response  = sut.getCurrentTemperature("Lima", "weatherChannel.Api");
 
-        Assert.assertEquals(17,currentTemperature);
+        Assert.assertEquals(17,response.getCurrentTemperature());
     }
 
-    @Test
+ /*   @Test
     public void shouldReturnCurrentTemperatureInLimaCityUsingForecastIo(){
         QueryController sut = new QueryController();
 
-        long currentTemperature = sut.getCurrentTemperature(new TemperatureRequest("Lima", "forecastIO.Api"));
+        long currentTemperature = sut.getCurrentTemperature("Lima", "forecastIO.Api");
 
         Assert.assertEquals(18,currentTemperature);
-    }
+    }*/
 }

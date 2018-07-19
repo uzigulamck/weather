@@ -1,5 +1,9 @@
 package com.weather.queryWeather;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
 
 public final class TemperatureRequest {
 
@@ -10,6 +14,4 @@ public final class TemperatureRequest {
     private String city;
     private String providerName;
 
-    public String getCity(){return city;}
-    public String getProviderName(){return providerName;}
 }
