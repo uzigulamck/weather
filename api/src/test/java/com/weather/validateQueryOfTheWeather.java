@@ -41,12 +41,11 @@ public class validateQueryOfTheWeather {
         Assert.assertEquals(17,response.getCurrentTemperature());
     }
 
- /*   @Test
+    @Test
     public void shouldReturnCurrentTemperatureInLimaCityUsingForecastIo(){
-        QueryController sut = new QueryController();
 
-        long currentTemperature = sut.getCurrentTemperature("Lima", "forecastIO.Api");
+        ForecastResponse response = sut.getCurrentTemperature("Lima", "forecastIO.Api");
 
-        Assert.assertEquals(18,currentTemperature);
-    }*/
+        Assert.assertEquals(18,response.getCurrentTemperature());
+    }
 }
